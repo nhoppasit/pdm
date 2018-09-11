@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PDM2019.RoomControl"              
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -28,7 +28,7 @@
                 </RibbonApplicationMenu>
             </Ribbon.ApplicationMenu>
 
-            <!--USER TAB-->
+            <!--Activity -->
             <RibbonTab Header="แสดงกิจกรรม">
                 <RibbonGroup Header="ค้นหา">
                     <Grid ShowGridLines="False">
@@ -59,13 +59,24 @@
 
                     </Grid>
                 </RibbonGroup>
+
+                <!--พิมพ์ใบตรวจนับ-->
+                <RibbonGroup Header="ตั้งค่า">
+                    <RibbonButton Name="mnuDetailRefresh" Label="เรียกข้อมูลล่าสุด" LargeImageSource="Image/Refresh.png"/>
+                </RibbonGroup>
+
+                <!--พิมพ์ใบตรวจนับ-->
+                <RibbonGroup Header="พิมพ์">                    
+                    <RibbonButton Label="พิมพ์ใบตรวจนับ" LargeImageSource="Image/paper.ico"/>
+                </RibbonGroup>
+                
+                
             </RibbonTab>
 
-            <!--DASH BOARD-->
-            <RibbonTab Header="บริหารผู้ใช้งาน">
+            <!--USER-->
+            <RibbonTab Header="ผู้จัดและผู้ตรวจสอบ">
 
             </RibbonTab>
-
 
         </Ribbon>
         <!--END-->
@@ -80,9 +91,9 @@
             <Grid Grid.Row="0">
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="70*"/>
+                    <ColumnDefinition Width="25*"/>
                     <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="75*"/>
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="0">
@@ -98,13 +109,7 @@
                             <GridView>
                                 <GridViewColumn Header="Line code" Width="120" DisplayMemberBinding="{Binding LINE_CODE}" />
                                 <GridViewColumn Header="PO" Width="150" DisplayMemberBinding="{Binding PO_NAME}" />
-                                <GridViewColumn Header="Product Count" Width="100" DisplayMemberBinding="{Binding PRODUCT_COUNT}" />
-                                <GridViewColumn Header="Weight" Width="70" DisplayMemberBinding="{Binding WEIGHT}" />
-                                <GridViewColumn Header="Total Take" Width="100" DisplayMemberBinding="{Binding TOTAL_TAKES}" />
-                                <GridViewColumn Header="Full Fill" Width="100" DisplayMemberBinding="{Binding FULL_FILLS}" />
-                                <GridViewColumn Header="Residual" Width="70" DisplayMemberBinding="{Binding RESIDUAL_BASKETS}" />
-                                <GridViewColumn Header="Residual" Width="70" DisplayMemberBinding="{Binding RESIDUAL}" />
-                                <GridViewColumn Header="Current Pick" Width="100" DisplayMemberBinding="{Binding CURRENT_PICKS}" />
+                                <GridViewColumn Header="Count" Width="50" DisplayMemberBinding="{Binding PRODUCT_COUNT}" />
                                 <GridViewColumn Header="Progress" Width="100">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
@@ -112,7 +117,13 @@
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
-                                <GridViewColumn Header="%" Width="30" DisplayMemberBinding="{Binding PICK_PERCENTS}" />
+                                <GridViewColumn Header="%" Width="40" DisplayMemberBinding="{Binding PICK_PERCENTS}" />
+                                <GridViewColumn Header="Weight" Width="70" DisplayMemberBinding="{Binding WEIGHT}" />
+                                <GridViewColumn Header="Total Take" Width="100" DisplayMemberBinding="{Binding TOTAL_TAKES}" />
+                                <GridViewColumn Header="Full Fill" Width="100" DisplayMemberBinding="{Binding FULL_FILLS}" />
+                                <GridViewColumn Header="Residual" Width="70" DisplayMemberBinding="{Binding RESIDUAL_BASKETS}" />
+                                <GridViewColumn Header="Residual" Width="70" DisplayMemberBinding="{Binding RESIDUAL}" />
+                                <GridViewColumn Header="Current Pick" Width="100" DisplayMemberBinding="{Binding CURRENT_PICKS}" />
                                 <GridViewColumn Header="Date-time" Width="100" DisplayMemberBinding="{Binding LAST_ACTIVITY_DATETIME}" />
                                 <GridViewColumn Header="Activity" Width="200" DisplayMemberBinding="{Binding LAST_ACTIVITY}" />
                             </GridView>
@@ -124,6 +135,42 @@
                 <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" ShowsPreview="true"/>
 
                 <!--PO DETAIL-->
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>                        
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Content="รายละเอียด ใบตรวจนับ" FontWeight="Bold"/>
+
+                    <ListView Grid.Row="1" Name="lvDetail">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="ลำดับที่" Width="30" DisplayMemberBinding="{Binding NO}" />
+                                <GridViewColumn Header="รหัสสินค้า" Width="50" DisplayMemberBinding="{Binding ITEM_CODE}" />
+                                <GridViewColumn Header="รายการ" Width="100" DisplayMemberBinding="{Binding ITEM_LABEL}" />
+                                <GridViewColumn Header="ขนาด" Width="70" DisplayMemberBinding="{Binding ITEM_SIZE}" />
+                                <GridViewColumn Header="บรรจุ" Width="100" DisplayMemberBinding="{Binding PACKAGES_IN_BASKET}" />
+                                <GridViewColumn Header="น้ำหนักรวม" Width="100" DisplayMemberBinding="{Binding WEIGHT}" />
+                                <GridViewColumn Header="จำนวนเบิก" Width="70" DisplayMemberBinding="{Binding TAKE_COUNT}" />
+                                <GridViewColumn Header="ตระกร้าเต็ม" Width="70" DisplayMemberBinding="{Binding FULL_FILLS}" />
+                                <GridViewColumn Header="เศษ" Width="100" DisplayMemberBinding="{Binding RESIDUAL}" />
+                                <GridViewColumn Header="จัดตะกร้าเต็ม" Width="100" DisplayMemberBinding="{Binding FULL_FILL_PICKS}" />
+                                <GridViewColumn Header="จัดตะกร้าเศษ" Width="100" DisplayMemberBinding="{Binding RESIDUAL_PICKS}" />
+                                <GridViewColumn Header="Progress" Width="100">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ProgressBar Width="180" Height="20" Margin="0" Minimum="0" Maximum="100" Foreground="Red" Value="{Binding PICK_PERCENTS}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="%" Width="40" DisplayMemberBinding="{Binding PICK_PERCENTS}" />
+                                <GridViewColumn Header="Date-time" Width="100" DisplayMemberBinding="{Binding LAST_ACTIVITY_DATETIME}" />
+                                <GridViewColumn Header="Activity" Width="200" DisplayMemberBinding="{Binding LAST_ACTIVITY}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
 
             </Grid>
 

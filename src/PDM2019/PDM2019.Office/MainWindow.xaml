@@ -30,6 +30,13 @@
                 </RibbonApplicationMenu>
             </Ribbon.ApplicationMenu>
             
+            <!--DASH BOARD-->
+            <RibbonTab Header="บริหารข้อมูลส่วนกลาง">
+                <RibbonGroup Header="นำเข้าข้อมูล">
+                    <RibbonMenuButton Label="นำเข้าข้อมูลการสั่งซื้อ" LargeImageSource="Image/Import.ICO"/>
+                </RibbonGroup>
+            </RibbonTab>
+            
             <!--USER TAB-->
             <RibbonTab Header="แสดงกิจกรรม">
                 <RibbonGroup Header="ค้นหา">
@@ -155,11 +162,22 @@
 
                 <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" ShowsPreview="true"/>
 
-                <maps:Map Grid.Column="3" Name="MyMap" 
-                  Mode="Road"
-                  CredentialsProvider="AnO7tA2BMOf_EgJFBtuRKZf1OuWA3oB7IVPiHBdFBJS197ntsl7SWmdddT-7MjbF" 
-                  ZoomLevel="6" 
-                  Center="13.8074282,100.8301315"/>
+                <!--BING MAP-->
+                <Grid Grid.Column="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>                        
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Content="Map:"/>
+
+                    <maps:Map Grid.Row="1" Name="MyMap" 
+                          Mode="Road"
+                          CredentialsProvider="AnO7tA2BMOf_EgJFBtuRKZf1OuWA3oB7IVPiHBdFBJS197ntsl7SWmdddT-7MjbF" 
+                          ZoomLevel="6" 
+                          Center="13.8074282,100.8301315"/>
+                </Grid>
+                
 
             </Grid>
 

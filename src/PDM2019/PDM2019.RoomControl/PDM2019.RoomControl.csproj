@@ -63,6 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Class\PickingDetail.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -93,6 +94,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PDM2019.Office\PDM2019.Office.csproj">
+      <Project>{f01cf124-682d-4d23-9b72-e0bcc2804fe4}</Project>
+      <Name>PDM2019.Office</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Search.ICO" />
+    <Resource Include="Image\UserIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\paper.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Check.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
