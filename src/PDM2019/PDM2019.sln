@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDM2019.Office", "PDM2019.Office\PDM2019.Office.csproj", "{F01CF124-682D-4D23-9B72-E0BCC2804FE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDM2019.RoomControl", "PDM2019.RoomControl\PDM2019.RoomControl.csproj", "{B311413E-C95B-42FF-A394-08EB08AFF0CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F01CF124-682D-4D23-9B72-E0BCC2804FE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F01CF124-682D-4D23-9B72-E0BCC2804FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F01CF124-682D-4D23-9B72-E0BCC2804FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F01CF124-682D-4D23-9B72-E0BCC2804FE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B311413E-C95B-42FF-A394-08EB08AFF0CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B311413E-C95B-42FF-A394-08EB08AFF0CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B311413E-C95B-42FF-A394-08EB08AFF0CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B311413E-C95B-42FF-A394-08EB08AFF0CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3CFA6ED4-7F4F-4D10-8151-0F4104282EC7}
+	EndGlobalSection
+EndGlobal
