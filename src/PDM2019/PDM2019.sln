@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDM2019.Office", "PDM2019.Office\PDM2019.Office.csproj", "{F01CF124-682D-4D23-9B72-E0BCC2804FE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDM2019.RoomControl", "PDM2019.RoomControl\PDM2019.RoomControl.csproj", "{B311413E-C95B-42FF-A394-08EB08AFF0CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDM2019.CentralControl", "PDM2019.RoomControl\PDM2019.CentralControl.csproj", "{B311413E-C95B-42FF-A394-08EB08AFF0CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
